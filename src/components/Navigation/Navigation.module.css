@@ -1,0 +1,158 @@
+.mainHeader {
+  min-width: 320px;
+  padding: 16px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.navList {
+  display: none;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.usernameText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.userIconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--green);
+}
+
+.userIcon {
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
+  fill-opacity: 0.7;
+}
+
+.logoutBtn {
+  display: none;
+}
+
+.menuBtn {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+
+.menuBtnIcon {
+  width: 32px;
+  height: 22px;
+  stroke: var(--black);
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mainHeader {
+    width: 768px;
+    padding: 20px 32px;
+  }
+
+  .user {
+    gap: 28px;
+  }
+
+  .usernameText {
+    font-size: 20px;
+    gap: 16px;
+  }
+
+  .userIconWrap {
+    width: 48px;
+    height: 48px;
+  }
+
+  .userIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .menuBtnIcon {
+    width: 40px;
+    height: 28px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainHeader {
+    width: 1440px;
+    padding: 20px 100px;
+  }
+
+  .navWrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .navList {
+    display: flex;
+    gap: 28px;
+  }
+
+  .navItem {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .active {
+    border-radius: 15px;
+    padding: 12px 20px;
+    background-color: var(--green);
+    color: var(--white);
+  }
+
+  .user {
+    gap: 16px;
+  }
+
+  .usernameText {
+    gap: 10px;
+  }
+
+  .logoutBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    background-color: transparent;
+  }
+
+  .logoutBtnIconWrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .logoutBtnIcon {
+    width: 16px;
+    height: 16px;
+    stroke: var(--black);
+    fill: transparent;
+  }
+
+  .menuBtn {
+    display: none;
+  }
+}

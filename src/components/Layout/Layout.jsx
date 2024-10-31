@@ -6,7 +6,7 @@ export default function Layout({children = null}) {
     return (
         <div className={css.container}>
             <Suspense fallback={<div className={css.spinner}>
-                <RotateSpinner size={120} color='#85aa9f' />
+                <RotateSpinner size={120} color='var(--green)' />
             </div>} >
                 {children}
             </Suspense>

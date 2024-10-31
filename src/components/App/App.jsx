@@ -1,6 +1,7 @@
 import { lazy } from 'react';
-import Layout from '../Layout/Layout.jsx';
 import { Route, Routes } from 'react-router-dom';
+import Navigation from '../Navigation/Navigation.jsx';
+import Layout from '../Layout/Layout.jsx';
 
 const MainLayout = lazy(() => import('../../pages/MainLayout/MainLayout.jsx'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage.jsx'));
@@ -12,17 +13,20 @@ const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage.js
 
 export default function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path='/' element={<MainLayout />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/dictionary' element={<DictionaryPage />} />     
-        <Route path='/recommend' element={<RecommendPage />} />
-        <Route path='/training' element={<TrainingPage />} />
+    <>
+      <Navigation />
+      <Layout>
+        <Routes>
+          <Route path='/' element={<MainLayout />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/dictionary' element={<DictionaryPage />} />
+          <Route path='/recommend' element={<RecommendPage />} />
+          <Route path='/training' element={<TrainingPage />} />
               
-        <Route path='/*' element={<NotFoundPage />} />
-      </Routes>
-    </Layout>
-  )
+          <Route path='/*' element={<NotFoundPage />} />
+        </Routes>
+      </Layout>
+    </>
+  );
 }
