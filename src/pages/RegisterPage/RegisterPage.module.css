@@ -1,0 +1,79 @@
+.logoWrap {
+  padding: 16px 16px 12px 16px;
+}
+
+.registerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.mainImg {
+  width: 247px;
+  height: 191px;
+  background-image: url('../../assets/img/illustration.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slog {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .logoWrap {
+    padding: 24px 0 0 32px;
+  }
+
+  .registerSection {
+    flex-direction: column-reverse;
+    gap: 0;
+    background-image: url('../../assets/img/vector-tab.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 140px;
+  }
+
+  .mainImg {
+    display: none;
+  }
+
+  .slog {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    line-height: 1.5;
+    color: rgba(18, 20, 23, 0.8);
+    margin-top: 98px;
+    margin-bottom: 106px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .logoWrap {
+    padding: 24px 0 0 100px;
+  }
+
+  .registerSection {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: 80px;
+    background-image: url('../../assets/img/vector-desc.png');
+    padding: 64px 134px 80px 100px;
+  }
+
+  .mainImg {
+    display: block;
+    width: 498px;
+    height: 435px;
+    margin-bottom: 16px;
+  }
+
+  .slog {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

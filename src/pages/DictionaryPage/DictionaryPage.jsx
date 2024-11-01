@@ -1,5 +1,10 @@
+import Navigation from '../../components/Navigation/Navigation.jsx';
 export default function DictionaryPage() {
     return (
-        <p>This is Dictionary Page</p>
+        <>
+            <Navigation/>
+            <p>This is Dictionary Page</p>
+        </>
+
     )
 }

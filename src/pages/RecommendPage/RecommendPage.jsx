@@ -1,5 +1,10 @@
+import Navigation from '../../components/Navigation/Navigation.jsx';
+
 export default function RecommendPage() {
     return (
-        <p>This is Recommend Page</p>
+        <>
+            <Navigation/>
+            <p>This is Recommend Page</p>
+        </>
     )
 }
