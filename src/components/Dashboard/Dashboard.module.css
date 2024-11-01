@@ -1,0 +1,53 @@
+.wrap {
+  margin-top: 32px;
+}
+
+.addWord {
+  display: flex;
+  gap: 16px;
+}
+
+.addWordBtn,
+.linkTrain {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.addIconWrap,
+.arrowIconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addIcon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--green);
+}
+
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--green);
+  fill: none;
+}
+
+@media screen and (min-width: 768px) {
+  .addWord {
+    display: inline-flex;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
