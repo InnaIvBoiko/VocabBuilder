@@ -1,0 +1,88 @@
+.logoWrap {
+  padding: 16px 16px 12px 16px;
+}
+
+.loginSection {
+  display: flex;
+  flex-direction: column;
+  gap: 43px;
+  align-items: center;
+}
+
+.mainImgWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.mainImg {
+  width: 247px;
+  height: 191px;
+  background-image: url('../../assets/img/illustration.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slog {
+  font-size: 14px;
+  color: rgba(18, 20, 23, 0.8);
+}
+
+@media screen and (min-width: 768px) {
+  .logoWrap {
+    padding: 24px 0 0 32px;
+  }
+
+  .loginSection {
+    flex-direction: column-reverse;
+    gap: 0;
+    background-image: url('../../assets/img/vector-tab.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    padding-top: 140px;
+  }
+
+  .mainImg {
+    display: none;
+  }
+
+  .slog {
+    font-size: 16px;
+    margin-top: 172px;
+    margin-bottom: 106px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .logoWrap {
+    padding: 24px 0 0 100px;
+  }
+
+  .loginSection {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 80px;
+    background-image: url('../../assets/img/vector-desk.png');
+    padding: 103px 134px 104px 100px;
+  }
+
+  .mainImgWrap {
+    margin-bottom: 54px;
+  }
+
+  .mainImg {
+    display: block;
+    width: 498px;
+    height: 435px;
+    margin-bottom: 16px;
+    gap: 0;
+  }
+
+  .slog {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

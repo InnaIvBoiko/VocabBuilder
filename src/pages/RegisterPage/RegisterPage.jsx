@@ -11,10 +11,10 @@ export default function RegisterPage() {
             <main>
                 <section className={css.registerSection}>
                     <div className={css.mainImgWrap}>
-                    <div className={css.mainImg}></div>
-                    <p className={css.slog}>Word  ·  Translation  ·  Grammar  ·  Progress</p>
+                        <div className={css.mainImg}></div>
+                        <p className={css.slog}>Word  ·  Translation  ·  Grammar  ·  Progress</p>
                     </div>
-                        <RegisterForm />
+                    <RegisterForm />
                 </section>
             </main>
         </>

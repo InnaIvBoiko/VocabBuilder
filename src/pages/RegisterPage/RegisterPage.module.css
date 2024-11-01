@@ -32,8 +32,8 @@
     gap: 0;
     background-image: url('../../assets/img/vector-tab.png');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-position-x: right;
+    background-position-y: bottom;
     padding-top: 140px;
   }
 
@@ -61,7 +61,7 @@
     flex-direction: row-reverse;
     justify-content: flex-start;
     gap: 80px;
-    background-image: url('../../assets/img/vector-desc.png');
+    background-image: url('../../assets/img/vector-desk.png');
     padding: 64px 134px 80px 100px;
   }
 
