@@ -7,7 +7,7 @@ export default function Logo() {
             <p className={css.logoText}>
                 <span className={css.logoIconWrap}>
                     <svg className={css.logoIcon} aria-hidden='true'>
-                        <use xlinkHref={'/src/assets/sprite.svg#icon-craftwork'} />
+                        <use xlinkHref={'/assets/sprite.svg#icon-craftwork'} />
                     </svg>
                 </span>
                 VocabBuilder

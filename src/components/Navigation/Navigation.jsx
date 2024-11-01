@@ -29,7 +29,7 @@ export default function Navigation() {
                     Name
                     <span className={css.userIconWrap}>
                         <svg className={css.userIcon} aria-hidden='true'>
-                            <use xlinkHref={'/src/assets/sprite.svg#icon-user'} />
+                            <use xlinkHref={'/assets/sprite.svg#icon-user'} />
                         </svg>
                     </span>
                 </p>
@@ -37,13 +37,13 @@ export default function Navigation() {
                     Log out
                     <span className={css.logoutBtnIconWrap}>
                         <svg className={css.logoutBtnIcon} aria-hidden='true'>
-                            <use xlinkHref={'/src/assets/sprite.svg#icon-arrow-right'} />
+                            <use xlinkHref={'/assets/sprite.svg#icon-arrow-right'} />
                         </svg>
                     </span>
                 </button>
                 <button type='button' className={css.menuBtn}>
                     <svg className={css.menuBtnIcon} aria-hidden='true'>
-                        <use xlinkHref={'/src/assets/sprite.svg#icon-nav'} />
+                        <use xlinkHref={'/assets/sprite.svg#icon-nav'} />
                     </svg>
                 </button>
             </div>

@@ -51,11 +51,11 @@ export default function LoginForm() {
                 <button type='button' className={css.btnIsVisible} onClick={handleToggle}>
                     {passwordIsVisible ? (
                         <svg className={css.eyeIcon} aria-hidden='true'>
-                            <use xlinkHref={'/src/assets/sprite.svg#icon-eye'} />
+                            <use xlinkHref={'/assets/sprite.svg#icon-eye'} />
                         </svg>)
                         : ((
                             <svg className={css.eyeIcon} aria-hidden='true'>
-                                <use xlinkHref={'/src/assets/sprite.svg#icon-eye-off'} />
+                                <use xlinkHref={'/assets/sprite.svg#icon-eye-off'} />
                             </svg>)
                         )
                     }
