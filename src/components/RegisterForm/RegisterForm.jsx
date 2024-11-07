@@ -1,8 +1,12 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { toast } from 'react-hot-toast';
+import { registerUser } from '../../redux/auth/operations.js';
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import css from './RegisterForm.module.css';
 
 const registerSchema = yup.object({
@@ -14,6 +18,12 @@ const registerSchema = yup.object({
 });
 
 export default function RegisterForm() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const { loading, error } = useSelector((state) => state.auth);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
+
     const [type, setType] = useState('password');
     const [passwordIsVisible, setPasswordIsVisible] = useState(false);
 
@@ -25,8 +35,26 @@ export default function RegisterForm() {
         resolver: yupResolver(registerSchema),
     });
 
+    useEffect(() => {
+        if (isLoggedIn) {
+            navigate('/dictionary');
+        }
+    }, [isLoggedIn, navigate]);
+
     const onSubmit = (data) => {
         console.log(data);   
+        dispatch(registerUser(data))
+            .unwrap()
+            .then(response => {
+                toast.success('Registration successful!');
+            })
+            .catch(error => {
+                if (error.response && error.response.status === 409) {
+                    toast.error('Email already exists. Please use a different email.');
+                } else {
+                    toast.error('Oops, something went wrong. Please try again.');
+                }
+            });
     };
 
     const handleToggle = () => {
@@ -72,6 +100,10 @@ export default function RegisterForm() {
             <Link to='/login' className={css.loginLink}>
                 Login
             </Link>
+                                
+            {loading && <p>Loading...</p>}
+            {error && <p className={css.error}>Error: {error}</p>}
+
         </form>
     );
 }

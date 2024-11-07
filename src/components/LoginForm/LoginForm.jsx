@@ -1,8 +1,12 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { toast } from 'react-hot-toast';
+import { logIn } from '../../redux/auth/operations.js';
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import css from './LoginForm.module.css';
 
 const loginSchema = yup.object({
@@ -13,6 +17,12 @@ const loginSchema = yup.object({
 });
 
 export default function LoginForm() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const { loading, error } = useSelector((state) => state.auth);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
+
     const [type, setType] = useState('password');
     const [passwordIsVisible, setPasswordIsVisible] = useState(false);
 
@@ -24,8 +34,21 @@ export default function LoginForm() {
         resolver: yupResolver(loginSchema),
     });
 
-    const onSubmit = (data) => {
-        console.log(data);   
+    useEffect(() => {
+        if (isLoggedIn) {
+            navigate('/dictionary');
+        }
+    }, [isLoggedIn, navigate]);
+    
+    const onSubmit = (credentials) => {
+        dispatch(logIn(credentials))
+            .unwrap()
+            .then(response => {
+                toast.success('Login successful!');
+            })
+            .catch(error => {
+                toast.error('Oops, something went wrong. Please try again.');
+            });
     };
 
     const handleToggle = () => {
@@ -68,6 +91,10 @@ export default function LoginForm() {
             <Link to='/register' className={css.loginLink}>
                 Register
             </Link>
+
+            {loading && <p>Loading...</p>}
+            {error && <p className={css.error}>Error: {error}</p>}
+
         </form>
     );
 }

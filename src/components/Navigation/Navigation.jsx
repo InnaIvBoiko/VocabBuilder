@@ -1,6 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import Logo from '../Logo/Logo.jsx';
+import { toast } from 'react-hot-toast';
+import { logOut } from '../../redux/auth/operations.js';   
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
+ 
 import css from './Navigation.module.css';
 
 const getNavLinkClass = ({ isActive }) => {
@@ -8,6 +14,29 @@ const getNavLinkClass = ({ isActive }) => {
 };
 
 export default function Navigation() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const { loading, error } = useSelector((state) => state.auth);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
+
+    useEffect(() => {
+        if (!isLoggedIn) {
+            navigate('/login');
+        }
+    }, [isLoggedIn, navigate]);
+    
+    const handleLogout = () => {
+        dispatch(logOut())
+            .unwrap()
+            .then(response => {
+                toast.success('LogOut successful!');
+            })
+            .catch(error => {
+                toast.error('Oops, something went wrong. Please try again.');
+            });
+    };
+
     return (
         <header className={css.mainHeader}>
             <Logo />
@@ -33,7 +62,7 @@ export default function Navigation() {
                         </svg>
                     </span>
                 </p>
-                <button type='button' className={css.logoutBtn}>
+                <button type='button' className={css.logoutBtn} onClick={handleLogout}>
                     Log out
                     <span className={css.logoutBtnIconWrap}>
                         <svg className={css.logoutBtnIcon} aria-hidden='true'>
@@ -47,6 +76,10 @@ export default function Navigation() {
                     </svg>
                 </button>
             </div>
+            
+            {loading && <p>Loading...</p>}
+            {error && <p className={css.error}>Error: {error}</p>}
+
         </header>
     );
 }
