@@ -1,0 +1,294 @@
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.text {
+  line-height: 1.5;
+  color: var(--white);
+  max-width: 290px;
+  margin-bottom: 16px;
+}
+
+.categoriesWrap {
+  margin-bottom: 32px;
+}
+
+.categoryWrap {
+  position: relative;
+}
+
+.categoryField {
+  border: 1px solid #d1d5db;
+  border-radius: 15px;
+  padding: 12px 24px;
+  width: 311px;
+  height: 48px;
+  background-color: transparent;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--white);
+  outline: transparent;
+}
+
+.categoryIconWrap {
+  position: absolute;
+  right: 2px;
+  top: 14px;
+  border: none;
+  width: 42px;
+  background-color: var(--green);
+  pointer-events: none;
+}
+
+.categoryIconRotate,
+.categoryIcon {
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
+}
+
+.radioWrap {
+  display: flex;
+  gap: 86px;
+}
+
+.isIrregularFalse {
+  position: relative;
+}
+
+.radioBthWrapActive {
+  position: absolute;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--green);
+}
+
+.activeRadioBth {
+  border-radius: 10px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--white);
+  pointer-events: inherit;
+}
+
+.radioBtnIconWrap {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.uaIcon,
+.ukIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 15px;
+  padding: 12px 24px;
+  height: 48px;
+  background-color: transparent;
+  outline: transparent;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--white);
+  transition: border 500ms linear;
+}
+
+.categoryField:hover,
+.categoryField:focus,
+.field:hover,
+.field:focus {
+  border: 1px solid var(--white);
+}
+
+.buttonsWrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: calc(32px - 16px);
+  gap: 8px;
+}
+
+.submitBtn {
+  border: none;
+  border-radius: 30px;
+  padding: 12px 60px;
+  width: 158px;
+  height: 48px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--black);
+  background-color: var(--white);
+  transition: color 500ms linear;
+}
+
+.cancelBtn {
+  border: 1px solid rgba(252, 252, 252, 0.4);
+  border-radius: 30px;
+  padding: 12px 45px;
+  width: 145px;
+  height: 48px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--white);
+  background-color: transparent;
+  transition: color 500ms linear, background-color 500ms linear;
+}
+
+.submitBtn:hover,
+.submitBtn:focus {
+  color: var(--green);
+}
+
+.cancelBtn:hover,
+.cancelBtn:focus {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    font-size: 20px;
+    color: rgba(252, 252, 252, 0.8);
+    min-width: 500px;
+    margin-bottom: 32px;
+  }
+
+  .categoriesWrap {
+    margin-bottom: 38px;
+  }
+
+  .categoryField {
+    border: 1px solid rgba(252, 252, 252, 0.3);
+    width: 354px;
+    margin-bottom: 8px;
+  }
+
+  .categoryIconWrap {
+    position: absolute;
+    right: 148px;
+  }
+
+  .radioWrap {
+    display: flex;
+    gap: 100px;
+  }
+
+  .isIrregularFalse {
+    position: relative;
+  }
+
+  .radioBthWrapActive {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
+  .activeRadioBth {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgb(252, 252, 252, 0.2);
+  }
+
+  .radioBtnIconWrap {
+    width: 24px;
+    height: 24px;
+  }
+
+  label {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+
+  .uaLabel {
+    position: absolute;
+    top: 362px;
+    right: 64px;
+  }
+
+  .enLabel {
+    position: absolute;
+    top: 434px;
+    right: 83px;
+  }
+
+  .uaIcon,
+  .ukIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .field {
+    border: 1px solid rgba(252, 252, 252, 0.3);
+    padding: 16px 18px;
+    width: 354px;
+    height: 56px;
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+
+  .buttonsWrap {
+    margin-top: calc(32px - 18px);
+    gap: 10px;
+  }
+
+  .submitBtn {
+    padding: 14px 101px;
+    width: 245px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 1.56;
+  }
+
+  .cancelBtn {
+    padding: 14px 92px;
+    width: 245px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 1.56;
+  }
+
+  .submitBtn:hover,
+  .submitBtn:focus {
+    color: var(--green);
+  }
+
+  .cancelBtn:hover,
+  .cancelBtn:focus {
+    background-color: var(--white);
+    color: var(--black);
+  }
+}
