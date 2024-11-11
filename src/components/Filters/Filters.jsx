@@ -1,16 +1,27 @@
 import { useId, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { categoriesList } from '../../redux/categories/operations.js';
+import { selectCategories } from '../../redux/categories/selectors.js';
 import css from './Filters.module.css';
 
 export default function Filters() {
+    const dispatch = useDispatch();
+    const categories = useSelector(selectCategories);
+
     const categoryId = useId();
     const filterId = useId();
     const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+        dispatch(categoriesList());
+    }, [dispatch]);
 
     const handleSelect = (e) => {
         setIsActive(true);
         console.log(e.target.value);
         setIsActive(false);
-    }
+    };
 
     return (
         <div className={css.filtersWrap}>
@@ -38,17 +49,9 @@ export default function Filters() {
                     defaultValue=''
                 >
                     <option value='' disabled hidden>Categories</option>
-                    <option value='verb'>Verb</option>
-                    <option value='participle'>Participle</option>
-                    <option value='noun'>Noun</option>
-                    <option value='adjective'>Adjective</option>
-                    <option value='pronoun'>Pronoun</option>
-                    <option value='numerals'>Numerals</option>
-                    <option value='adverb'>Adverb</option>
-                    <option value='preposition'>Preposition</option>
-                    <option value='conjuction'>Conjuction</option>
-                    <option value='phrasalVerb'>Phrasal verb</option>
-                    <option value='functionalPhrase'>Functional phrase</option>
+                    {categories.map((category, index) => (
+                        <option key={index} value={category}>{category.charAt(0).toUpperCase() + category.slice(1)}</option>
+                    ))}
                 </select>
                 <button type='button' className={css.categoryIconWrap}>
                     {isActive ? (

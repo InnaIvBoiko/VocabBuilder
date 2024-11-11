@@ -10,8 +10,9 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
-// import { wordsReducer } from './words/slice.js';
 import { authReducer } from './auth/slice.js';
+import { categoriesReducer } from './categories/slice.js';
+import { wordsReducer } from './words/slice.js';
 
 const authPersistConfig = {
   key: 'auth',
@@ -23,8 +24,10 @@ const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
-    // words: wordsReducer,
     auth: persistedAuthReducer,
+    categories: categoriesReducer,
+    words: wordsReducer,
+
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

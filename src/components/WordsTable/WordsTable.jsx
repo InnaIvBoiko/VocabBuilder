@@ -1,6 +1,18 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { allWords } from '../../redux/words/operations';
+import { selectAllWords } from '../../redux/words/selectors.js';
 import css from './WordsTable.module.css';
 
 export default function WordsTable() {
+    const dispatch = useDispatch();
+    const words = useSelector(selectAllWords);
+
+    useEffect(() => {
+        dispatch(allWords());
+    }, [dispatch]);
+
+    console.log(words)
     return (
         <table className={css.customTable}>
             <thead>
@@ -24,9 +36,9 @@ export default function WordsTable() {
                     <th></th>
                 </tr>
             </thead>
-            {/* 
+            
             <tbody>
-                 {data.map((item) => (
+                 {words.items.map((item) => (
                 <tr key={item.id} className={css.row}>
                     <td className={css.item}>{item.en}</td>
                     <td className={css.item}>{item.ua}</td>
@@ -39,57 +51,8 @@ export default function WordsTable() {
                     </td>
                 </tr>
               ))}
-            </tbody>  */}
-           
-            <tr className={css.row}>
-                <td className={css.item}>A little bit</td>
-                <td className={css.item}>Трохи, трішки</td>
-                <td className={css.item}>Phrasal verb</td>
-                <td className={css.item}>50%</td>
-                <td className={css.item}>...</td>
-            </tr>
-            <tr className={css.row}>
-                <td>A little bit</td>
-                <td>Трохи, трішки</td>
-                <td>Phrasal verb</td>
-                <td>50%</td>
-                <td>...</td>
-            </tr>
-            <tr className={css.row}>
-                <td>A little bit</td>
-                <td>Трохи, трішки</td>
-                <td>Phrasal verb</td>
-                <td>50%</td>
-                <td>...</td>
-            </tr>
-            <tr className={css.row}>
-                <td>A little bit</td>
-                <td>Трохи, трішки</td>
-                <td>Phrasal verb</td>
-                <td>50%</td>
-                <td>...</td>
-            </tr>
-            <tr className={css.row}>
-                <td>A little bit</td>
-                <td>Трохи, трішки</td>
-                <td>Phrasal verb</td>
-                <td>50%</td>
-                <td>...</td>
-            </tr>
-            <tr className={css.row}>
-                <td>A little bit</td>
-                <td>Трохи, трішки</td>
-                <td>Phrasal verb</td>
-                <td>50%</td>
-                <td>...</td>
-            </tr>
-            <tr className={css.row}>
-                <td>A little bit</td>
-                <td>Трохи, трішки</td>
-                <td>Phrasal verb</td>
-                <td>50%</td>
-                <td>...</td>
-            </tr>
+            </tbody> 
+
         </table>
     );
 }

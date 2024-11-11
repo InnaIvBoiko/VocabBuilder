@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllWords } from './operations.js';
+import { allWords } from './operations.js';
 
 const wordsInitialState = {
   items: [],
@@ -13,15 +13,15 @@ const wordsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchAllWords.pending, (state) => {
+            .addCase(allWords.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(fetchAllWords.fulfilled, (state, action) => {
+            .addCase(allWords.fulfilled, (state, action) => {
                 state.loading = false;
-                state.items = action.payload.data.items;
+                state.items = action.payload.results;
             })
-            .addCase(fetchAllWords.rejected, (state, action) => {
+            .addCase(allWords.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             });
